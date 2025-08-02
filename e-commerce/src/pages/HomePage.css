@@ -1,0 +1,29 @@
+/* src/pages/HomePage.css */
+.home-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-input,
+.sort-select {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+}
+
+.search-input {
+  width: 250px;
+}

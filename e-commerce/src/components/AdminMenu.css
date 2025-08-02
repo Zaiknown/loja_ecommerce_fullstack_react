@@ -1,0 +1,28 @@
+/* src/components/AdminMenu.css */
+.admin-menu {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.admin-menu-link {
+  color: var(--text-color-secondary);
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.admin-menu-link:hover {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+/* '.active' é uma classe que o NavLink adiciona automaticamente */
+.admin-menu-link.active {
+  background-color: var(--primary-color);
+  color: white;
+}

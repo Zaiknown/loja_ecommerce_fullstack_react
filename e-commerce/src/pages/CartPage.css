@@ -1,0 +1,76 @@
+    /* src/pages/CartPage.css */
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Uma coluna em ecrãs pequenos */
+  gap: 2rem;
+  align-items: start;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  background-color: var(--surface-color);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-info p {
+  color: var(--text-color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-actions {
+  margin-top: auto; /* Empurra o botão de remover para o fundo */
+}
+
+.cart-summary {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  position: sticky; /* Faz o sumário "flutuar" ao rolar a página */
+  top: 2rem;
+}
+
+.cart-summary h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.cart-summary .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Media Query para ecrãs maiores */
+@media (min-width: 992px) {
+  .cart-layout {
+    grid-template-columns: 2fr 1fr; /* Duas colunas em ecrãs maiores */
+  }
+}

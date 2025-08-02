@@ -1,0 +1,57 @@
+/* src/components/Header.css */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--secondary-color); /* Usa a variável do tema */
+  color: var(--text-color);
+  
+  /* Cria um contexto de empilhamento e garante que o cabeçalho fica na camada superior */
+  position: relative;
+  z-index: 10;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.navigation a {
+  color: var(--text-color-secondary);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.navigation a:hover {
+  color: var(--primary-color);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon a, .cart-icon span, .cart-icon button {
+  color: var(--text-color-secondary);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 500;
+}
+
+.cart-icon button {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.cart-icon button:hover {
+    background-color: #3a3f4b;
+}

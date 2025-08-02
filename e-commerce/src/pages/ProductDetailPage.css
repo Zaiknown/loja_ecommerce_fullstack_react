@@ -1,0 +1,47 @@
+/* src/pages/ProductDetailPage.css */
+
+.product-detail-layout {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte em ecrãs pequenos */
+  gap: 3rem; /* Aumenta o espaçamento entre a imagem e o texto */
+  align-items: flex-start;
+  padding: 2rem 0;
+}
+
+.product-detail-image-wrapper {
+  flex: 1 1 400px; /* Ocupa metade do espaço, com uma base de 400px */
+  max-width: 500px; /* Define um tamanho máximo para a imagem */
+  margin: 0 auto; /* Centra em ecrãs mais pequenos */
+}
+
+.product-detail-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.product-detail-info-wrapper {
+  flex: 1 1 500px; /* Ocupa o espaço restante, com uma base de 500px */
+}
+
+.product-detail-info-wrapper h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.product-detail-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.product-detail-description {
+  line-height: 1.8;
+  color: var(--text-color-secondary);
+  margin-bottom: 2rem;
+}
