@@ -1,4 +1,3 @@
-// src/services/api.js
 import axios from 'axios';
 
 const apiClient = axios.create({
@@ -15,7 +14,6 @@ apiClient.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
-// --- Funções de Produtos ---
 export const getProducts = (pageNumber = '') => apiClient.get(`/products?pageNumber=${pageNumber}`);
 export const getAllProductsForAdmin = () => apiClient.get('/products/all'); // NOVA FUNÇÃO
 export const getProductById = (id) => apiClient.get(`/products/${id}`);
@@ -23,11 +21,9 @@ export const createProduct = (productData) => apiClient.post('/products', produc
 export const updateProduct = (id, productData) => apiClient.put(`/products/${id}`, productData);
 export const deleteProduct = (id) => apiClient.delete(`/products/${id}`);
 
-// --- Funções de Autenticação ---
 export const register = (userData) => apiClient.post('/users/register', userData);
 export const login = (credentials) => apiClient.post('/users/login', credentials);
 
-// --- Funções de Pedidos ---
 export const createOrder = (orderData) => apiClient.post('/orders', orderData);
 export const getMyOrders = () => apiClient.get('/orders/myorders');
 export const getAllOrders = () => apiClient.get('/orders');

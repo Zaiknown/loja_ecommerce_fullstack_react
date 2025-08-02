@@ -1,8 +1,6 @@
-    /* src/pages/CartPage.css */
-
 .cart-layout {
   display: grid;
-  grid-template-columns: 1fr; /* Uma coluna em ecrãs pequenos */
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: start;
 }
@@ -46,7 +44,7 @@
 }
 
 .cart-item-actions {
-  margin-top: auto; /* Empurra o botão de remover para o fundo */
+  margin-top: auto;
 }
 
 .cart-summary {
@@ -54,7 +52,7 @@
   padding: 2rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  position: sticky; /* Faz o sumário "flutuar" ao rolar a página */
+  position: sticky;
   top: 2rem;
 }
 
@@ -68,9 +66,8 @@
   margin-top: 1rem;
 }
 
-/* Media Query para ecrãs maiores */
 @media (min-width: 992px) {
   .cart-layout {
-    grid-template-columns: 2fr 1fr; /* Duas colunas em ecrãs maiores */
+    grid-template-columns: 2fr 1fr;
   }
 }

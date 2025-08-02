@@ -1,10 +1,9 @@
-// src/pages/ProductDetailPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../services/api';
 import Spinner from '../components/Spinner.jsx';
 import { toast } from 'react-toastify';
-import './ProductDetailPage.css'; // Importar o ficheiro CSS
+import './ProductDetailPage.css'; 
 
 function ProductDetailPage({ onAddToCart }) {
   const { id } = useParams();

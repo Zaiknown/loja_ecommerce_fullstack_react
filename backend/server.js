@@ -5,8 +5,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// --- MODELOS ---
-// Modelo de Utilizador
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
@@ -15,7 +13,6 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 const User = mongoose.model('User', userSchema);
 
-// Modelo de Produto
 const productSchema = new mongoose.Schema({
   name: String,
   price: Number,
@@ -23,7 +20,6 @@ const productSchema = new mongoose.Schema({
 });
 const Product = mongoose.model('Product', productSchema);
 
-// Modelo de Pedido
 const orderSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
   orderItems: [{
@@ -43,8 +39,6 @@ const orderSchema = new mongoose.Schema({
 }, { timestamps: true });
 const Order = mongoose.model('Order', orderSchema);
 
-// --- MIDDLEWARES DE AUTENTICAÇÃO ---
-// Middleware de proteção (autenticação via token)
 const protect = async (req, res, next) => {
   let token;
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
@@ -62,27 +56,23 @@ const protect = async (req, res, next) => {
   }
 };
 
-// Middleware apenas para administradores
 const admin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
-    next(); // Se for admin, continua
+    next();
   } else {
     res.status(401).json({ message: 'Não autorizado como administrador' });
   }
 };
 
-// --- CONFIGURAÇÃO DO EXPRESS ---
 const app = express();
 const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-// Conectar ao MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('✅ Conectado ao MongoDB Atlas!'))
   .catch(err => console.error('❌ Erro ao conectar ao MongoDB:', err));
 
-// --- ROTAS DE AUTENTICAÇÃO ---
 app.post('/api/users/register', async (req, res) => {
   const { name, email, password } = req.body;
   const userExists = await User.findOne({ email });
@@ -110,7 +100,6 @@ app.post('/api/users/login', async (req, res) => {
   }
 });
 
-// --- ROTAS DE PEDIDOS ---
 app.post('/api/orders', protect, async (req, res) => {
   const { orderItems, shippingAddress, totalPrice } = req.body;
   if (orderItems && orderItems.length === 0) {
@@ -136,7 +125,6 @@ app.get('/api/orders/myorders', protect, async (req, res) => {
   }
 });
 
-// Rota para buscar todos os pedidos (apenas administradores)
 app.get('/api/orders', protect, admin, async (req, res) => {
   try {
     const orders = await Order.find({}).populate('user', 'id name');
@@ -146,7 +134,6 @@ app.get('/api/orders', protect, admin, async (req, res) => {
   }
 });
 
-// --- ROTAS DE PRODUTOS ---
 app.get('/api/products', async (req, res) => {
   const pageSize = 8;
   const page = Number(req.query.pageNumber) || 1;
@@ -161,7 +148,6 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
-// NOVA ROTA: Buscar todos os produtos para o admin
 app.get('/api/products/all', async (req, res) => {
   try {
     const products = await Product.find({});

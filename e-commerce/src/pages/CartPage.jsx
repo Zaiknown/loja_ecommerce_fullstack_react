@@ -1,7 +1,6 @@
-// src/pages/CartPage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './CartPage.css'; // Importar o novo CSS
+import './CartPage.css';
 
 function CartPage({ cartItems, onRemoveFromCart }) {
   const totalPrice = cartItems.reduce((total, item) => {

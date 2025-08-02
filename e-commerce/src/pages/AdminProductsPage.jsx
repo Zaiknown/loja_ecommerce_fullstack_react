@@ -1,15 +1,13 @@
-// src/pages/AdminProductsPage.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProductsForAdmin, deleteProduct } from '../services/api';
 import AdminMenu from '../components/AdminMenu.jsx';
-import Modal from '../components/Modal.jsx'; // 1. Importar o nosso novo Modal
+import Modal from '../components/Modal.jsx';
 import { toast } from 'react-toastify';
 import './AdminPage.css';
 
 function AdminProductsPage() {
   const [products, setProducts] = useState([]);
-  // 2. Estados para controlar o modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [productToDelete, setProductToDelete] = useState(null);
 
@@ -27,19 +25,16 @@ function AdminProductsPage() {
     fetchProducts();
   }, []);
 
-  // 3. Função para abrir o modal
   const openDeleteModal = (id) => {
     setProductToDelete(id);
     setIsModalOpen(true);
   };
 
-  // 4. Função para fechar o modal
   const closeDeleteModal = () => {
     setProductToDelete(null);
     setIsModalOpen(false);
   };
 
-  // 5. Função que realmente apaga o produto
   const handleDeleteConfirm = async () => {
     if (productToDelete) {
       try {
@@ -88,7 +83,6 @@ function AdminProductsPage() {
                   <Link to={`/admin/products/edit/${product._id}`}>
                     <button className="btn btn-warning" style={{ marginRight: '8px' }}>Editar</button>
                   </Link>
-                  {/* 6. O botão de apagar agora abre o modal */}
                   <button onClick={() => openDeleteModal(product._id)} className="btn btn-danger">Apagar</button>
                 </td>
               </tr>
@@ -96,8 +90,6 @@ function AdminProductsPage() {
           </tbody>
         </table>
       </main>
-
-      {/* 7. O nosso componente de Modal */}
       <Modal
         isOpen={isModalOpen}
         onClose={closeDeleteModal}

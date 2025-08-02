@@ -1,7 +1,6 @@
-// src/pages/HomePage.jsx
 import React, { useState, useEffect } from 'react';
 import ProductList from '../components/ProductList';
-import './HomePage.css'; // 1. Importar o novo ficheiro CSS
+import './HomePage.css';
 
 function HomePage({ products, onAddToCart }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,7 +25,6 @@ function HomePage({ products, onAddToCart }) {
     setDisplayedProducts(processedProducts);
   }, [searchTerm, sortOrder, products]);
 
-  // 2. Usar as novas classes de CSS em vez de estilos embutidos
   return (
     <main className="content">
       <div className="home-controls">

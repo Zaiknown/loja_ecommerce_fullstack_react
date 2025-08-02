@@ -1,4 +1,3 @@
-// src/pages/MyOrdersPage.jsx
 import React, { useState, useEffect } from 'react';
 import { getMyOrders } from '../services/api';
 

@@ -1,6 +1,5 @@
-// src/components/Modal.jsx
 import React from 'react';
-import './Modal.css'; // Vamos criar este ficheiro a seguir
+import './Modal.css';
 
 function Modal({ isOpen, onClose, onConfirm, title, children }) {
   if (!isOpen) {

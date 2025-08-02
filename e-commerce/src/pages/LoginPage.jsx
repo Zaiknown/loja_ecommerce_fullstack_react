@@ -1,10 +1,9 @@
-// src/pages/LoginPage.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login as apiLogin } from '../services/api';
 import { useAuth } from '../context/AuthContext.jsx';
 import { toast } from 'react-toastify';
-import './AuthForm.css'; // Importar o CSS partilhado
+import './AuthForm.css';
 
 function LoginPage() {
   const navigate = useNavigate();

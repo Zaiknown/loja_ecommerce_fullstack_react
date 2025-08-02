@@ -1,9 +1,8 @@
-// src/pages/CheckoutPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createOrder } from '../services/api';
 import { toast } from 'react-toastify';
-import './CheckoutPage.css'; // Importar o novo CSS
+import './CheckoutPage.css';
 
 function CheckoutPage({ cartItems, clearCart }) {
   const navigate = useNavigate();
@@ -79,7 +78,6 @@ function CheckoutPage({ cartItems, clearCart }) {
             <span>Total:</span>
             <span>{totalPrice.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' })}</span>
           </div>
-          {/* Este botão submete o formulário com o id 'checkout-form' */}
           <button type="submit" form="checkout-form" className="btn btn-primary">
             Finalizar Compra
           </button>

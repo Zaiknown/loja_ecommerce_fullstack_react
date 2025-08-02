@@ -1,8 +1,7 @@
-// src/pages/AdminOrdersPage.jsx
 import React, { useState, useEffect } from 'react';
 import { getAllOrders } from '../services/api';
 import AdminMenu from '../components/AdminMenu.jsx';
-import './AdminPage.css'; // Reutilizar o nosso CSS de admin
+import './AdminPage.css';
 
 function AdminOrdersPage() {
   const [orders, setOrders] = useState([]);

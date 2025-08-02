@@ -1,5 +1,3 @@
-/* src/pages/CheckoutPage.css */
-
 .checkout-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -23,7 +21,6 @@
   padding-bottom: 1rem;
 }
 
-/* Estilos do Formulário */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -45,7 +42,6 @@
   font-size: 1rem;
 }
 
-/* Estilos do Resumo do Pedido */
 .summary-item-list {
   list-style: none;
   margin-bottom: 1.5rem;
@@ -72,9 +68,8 @@
   margin-top: 1.5rem;
 }
 
-/* Media Query para ecrãs maiores */
 @media (min-width: 992px) {
   .checkout-layout {
-    grid-template-columns: 2fr 1fr; /* Duas colunas em ecrãs maiores */
+    grid-template-columns: 2fr 1fr;
   }
 }

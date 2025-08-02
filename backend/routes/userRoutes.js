@@ -1,4 +1,3 @@
-// backend/routes/userRoutes.js
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -6,7 +5,6 @@ const User = require('../models/User');
 
 const router = express.Router();
 
-// ROTA DE REGISTO
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -24,7 +22,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// ROTA DE LOGIN
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -37,14 +34,11 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Credenciais inválidas.' });
     }
 
-    // DEBUG: Vamos ver o que o servidor está a ler do banco de dados
     console.log(`--- DEBUG LOGIN ---`);
     console.log(`Utilizador encontrado: ${user.name}`);
     console.log(`isAdmin no banco de dados: ${user.isAdmin}`);
     console.log(`--- FIM DEBUG ---`);
 
-    // CORREÇÃO CRUCIAL AQUI:
-    // Garantir que 'isAdmin' está incluído no objeto que gera o token.
     const token = jwt.sign(
       { id: user._id, name: user.name, isAdmin: user.isAdmin },
       process.env.JWT_SECRET || 'uma_chave_secreta_padrao',

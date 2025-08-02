@@ -1,4 +1,3 @@
-// src/pages/ProductFormPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { createProduct, getProductById, updateProduct } from '../services/api';
@@ -97,12 +96,10 @@ function ProductFormPage() {
             style={{ width: '100%', padding: '10px', borderRadius: '5px', border: '1px solid #555', backgroundColor: '#3a3f4b', color: '#fff' }}
           />
         </div>
-        {/* Usar o novo contentor de ações */}
         <div className="form-actions">
           <button type="submit" className="btn btn-primary">
             {isEditing ? 'Atualizar Produto' : 'Criar Produto'}
           </button>
-          {/* Adicionar o novo botão/link para voltar */}
           <Link to="/admin/products" className="btn btn-secondary">
             Cancelar
           </Link>

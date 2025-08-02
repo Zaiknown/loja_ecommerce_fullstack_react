@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -11,8 +9,6 @@ import Header from './components/Header';
 import { AuthProvider } from './context/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Spinner from './components/Spinner.jsx';
-
-// Importar todas as páginas
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import AdminProductsPage from './pages/AdminProductsPage';
@@ -55,7 +51,6 @@ function App() {
     setCartItems([]);
   };
 
-  // Componente Wrapper para a HomePage para lidar com a busca de dados paginados
   const HomePageWrapper = () => {
     const { pageNumber } = useParams();
     const [products, setProducts] = useState([]);
@@ -105,7 +100,6 @@ function App() {
           />
           <Header cartCount={cartItems.length} />
           <Routes>
-            {/* Rotas Públicas */}
             <Route path="/" element={<HomePageWrapper />} />
             <Route path="/page/:pageNumber" element={<HomePageWrapper />} />
             <Route 
@@ -117,11 +111,9 @@ function App() {
               element={<CartPage cartItems={cartItems} onRemoveFromCart={handleRemoveFromCart} />}
             />
 
-            {/* Rotas de Autenticação */}
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
 
-            {/* Rotas Protegidas para Utilizadores Logados */}
             <Route
               path="/checkout"
               element={<ProtectedRoute><CheckoutPage cartItems={cartItems} clearCart={clearCart} /></ProtectedRoute>}
@@ -131,7 +123,6 @@ function App() {
               element={<ProtectedRoute><MyOrdersPage /></ProtectedRoute>}
             />
 
-            {/* Rotas de Administração Protegidas */}
             <Route
               path="/admin/products"
               element={<ProtectedRoute><AdminProductsPage /></ProtectedRoute>}

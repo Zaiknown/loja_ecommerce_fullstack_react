@@ -1,9 +1,8 @@
-// src/pages/RegisterPage.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../services/api';
 import { toast } from 'react-toastify';
-import './AuthForm.css'; // Importar o CSS partilhado
+import './AuthForm.css';
 
 function RegisterPage() {
   const navigate = useNavigate();
