@@ -73,3 +73,10 @@
     grid-template-columns: 2fr 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .checkout-form-container,
+  .checkout-summary-container {
+    padding: 1.5rem;
+  }
+}

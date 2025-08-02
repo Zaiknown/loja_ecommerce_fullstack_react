@@ -61,34 +61,36 @@ function AdminProductsPage() {
           </Link>
         </div>
 
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Preço</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map(product => (
-              <tr key={product._id}>
-                <td>{product.name}</td>
-                <td>
-                  {typeof product.price === 'number'
-                    ? product.price.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' })
-                    : 'Preço inválido'
-                  }
-                </td>
-                <td>
-                  <Link to={`/admin/products/edit/${product._id}`}>
-                    <button className="btn btn-warning" style={{ marginRight: '8px' }}>Editar</button>
-                  </Link>
-                  <button onClick={() => openDeleteModal(product._id)} className="btn btn-danger">Apagar</button>
-                </td>
+        <div className="table-wrapper">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Ações</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {products.map(product => (
+                <tr key={product._id}>
+                  <td>{product.name}</td>
+                  <td>
+                    {typeof product.price === 'number'
+                      ? product.price.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' })
+                      : 'Preço inválido'
+                    }
+                  </td>
+                  <td>
+                    <Link to={`/admin/products/edit/${product._id}`}>
+                      <button className="btn btn-warning" style={{ marginRight: '8px' }}>Editar</button>
+                    </Link>
+                    <button onClick={() => openDeleteModal(product._id)} className="btn btn-danger">Apagar</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </main>
       <Modal
         isOpen={isModalOpen}
@@ -103,3 +105,4 @@ function AdminProductsPage() {
 }
 
 export default AdminProductsPage;
+

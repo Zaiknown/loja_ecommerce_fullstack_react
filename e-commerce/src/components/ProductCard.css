@@ -72,3 +72,17 @@
 .product-card .btn {
   width: 100%;
 }
+
+@media (max-width: 480px) {
+  .product-name {
+    font-size: 1rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
+
+  .product-info {
+    padding: 0.75rem;
+  }
+}

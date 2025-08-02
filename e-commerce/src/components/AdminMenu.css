@@ -21,8 +21,19 @@
   color: var(--text-color);
 }
 
-/* '.active' é uma classe que o NavLink adiciona automaticamente */
 .admin-menu-link.active {
   background-color: var(--primary-color);
   color: white;
+}
+
+@media (max-width: 768px) {
+  .admin-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .admin-menu-link {
+    flex-grow: 1;
+    text-align: center;
+  }
 }

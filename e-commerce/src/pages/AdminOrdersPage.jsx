@@ -32,26 +32,28 @@ function AdminOrdersPage() {
         <h2>Gerir Pedidos</h2>
       </div>
       
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>CLIENTE</th>
-            <th>DATA</th>
-            <th>TOTAL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map(order => (
-            <tr key={order._id}>
-              <td>{order._id}</td>
-              <td>{order.user?.name || 'Utilizador Apagado'}</td>
-              <td>{new Date(order.createdAt).toLocaleDateString('pt-PT')}</td>
-              <td>{order.totalPrice.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' })}</td>
+      <div className="table-wrapper">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>CLIENTE</th>
+              <th>DATA</th>
+              <th>TOTAL</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {orders.map(order => (
+              <tr key={order._id}>
+                <td>{order._id}</td>
+                <td>{order.user?.name || 'Utilizador Apagado'}</td>
+                <td>{new Date(order.createdAt).toLocaleDateString('pt-PT')}</td>
+                <td>{order.totalPrice.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' })}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </main>
   );
 }

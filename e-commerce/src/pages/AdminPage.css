@@ -8,3 +8,11 @@
 .admin-header h2 {
     margin: 0;
 }
+
+@media (max-width: 480px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
